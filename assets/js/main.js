@@ -249,6 +249,16 @@
 
 					});
 
+					// MY OWN CUSTOM ADDITIONS TO GALLERY
+					document.addEventListener('DOMContentLoaded', () => {
+    const galleryContainer = document.querySelector('.gallery-container');
+
+    galleryContainer.addEventListener('wheel', (event) => {
+        event.preventDefault();
+        galleryContainer.scrollLeft += event.deltaY;
+    });
+});
+
 	// Menu.
 		var $menu = $('#menu');
 
