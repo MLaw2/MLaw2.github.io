@@ -3314,9 +3314,6 @@ input, select, textarea {
 		column-gap: 2rem;
 		columns: 3;
 		margin: 0 0 2rem 0;
-		width: 100%;
-		/*CHANGES*/
-		/* height: 100%; */
 	}
 
 		.gallery a, .gallery span {
@@ -4670,7 +4667,7 @@ input, select, textarea {
 /* Probably grabbed and modified from the internet/ChatGPT */
 /* Scrolling Gallery */
 .gallery-container {
-    width:auto;
+    width: auto;
 	/* height: 100%; */
     overflow-x: auto;
     white-space: nowrap;
@@ -4686,8 +4683,15 @@ input, select, textarea {
 
 .gallery img {
     display: inline-block;
-    width:300%; /* Adjust the width as needed */
-    margin-right: 10px; /* Space between images */
-    /* height: 200%; */
+    width:100%; /* Adjust the width as needed */
+	/* height:5000%; */
+    /* margin-right: 10px; Space between images */
     vertical-align: top;
+}
+
+.gallery a {
+	display: inline-block;
+	width:200%;
+	vertical-align: top;
+	margin-bottom: 0px;
 }
