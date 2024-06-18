@@ -251,13 +251,30 @@
 
 					// MY OWN CUSTOM ADDITIONS TO GALLERY
 					document.addEventListener('DOMContentLoaded', () => {
-    const galleryContainer = document.querySelector('.gallery-container');
+						const galleryContainer = document.querySelector('.gallery-container');
+						const galleryWidth = galleryContainer.clientWidth;
+						let imagesTotalWidth = 0;
 
-    galleryContainer.addEventListener('wheel', (event) => {
-        event.preventDefault();
-        galleryContainer.scrollLeft += event.deltaY;
-    });
-});
+						Array.from(galleryContainer.children).forEach(img => {
+							const imgWidth = img.offsetWidth;
+							const style = getComputedStyle(img);
+							const marginLeft = parseInt(style.marginLeft);
+							const marginRight = parseInt(style.marginRight);
+							imagesTotalWidth += imgWidth + marginLeft + marginRight;
+            			});
+
+
+						if (imagesTotalWidth > galleryWidth) {
+							console.log("HEY STOP TAKING CONTROL OF MY SCROLL WHEEL PLEASE THANKS");
+
+						galleryContainer.addEventListener('wheel', (event) => {
+							event.preventDefault();
+							galleryContainer.scrollLeft += event.deltaY;
+						});
+
+                			galleryContainer.style.overflowX = 'hidden';
+            			}
+					});
 
 	// Menu.
 		var $menu = $('#menu');
