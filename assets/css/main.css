@@ -3311,9 +3311,11 @@ input, select, textarea {
 	}
 
 	.gallery {
+		display: inline-block;
 		column-gap: 2rem;
 		columns: 3;
 		margin: 0 0 2rem 0;
+		padding: 15px;
 	}
 
 		.gallery a, .gallery span {
@@ -4667,11 +4669,26 @@ input, select, textarea {
 /* Probably grabbed and modified from the internet/ChatGPT */
 /* Scrolling Gallery */
 .gallery-container {
-    width: auto;
+	display: flex;            /* Use flexbox layout */
+    flex-wrap: wrap;          /* Allow wrapping to the next line */
+    gap: 10px;                /* Gap between items */
+    padding: 10px;            /* Padding around the container */
+    justify-content: center;  /* Center the content horizontally */
+	width: auto;
 	/* height: 100%; */
     overflow-x: auto;
     white-space: nowrap;
 	/* scroll-snap-type: x mandatory; */
+}
+
+.gallery-item {
+    flex: 1 1 auto;           /* Allow items to grow and shrink */
+    max-width: 300px;         /* Set maximum width for images */
+    max-height: 300px;        /* Set maximum height for images */
+    object-fit: cover;        /* Ensure images cover their space */
+    margin: 10px;             /* Margin around each image */
+    border: 2px solid #ccc;   /* Border around each image */
+    border-radius: 5px;       /* Rounded corners for a nicer look */
 }
 
 .gallery {
@@ -4689,6 +4706,28 @@ input, select, textarea {
     vertical-align: top;
 }
 
+.text-block {
+    flex: 1 1 100%;           /* Take full width available */
+    margin: 10px;             /* Margin around each text block */
+    padding: 15px;            /* Padding inside the text block */
+    background-color: #f9f9f9;/* Background color for text blocks */
+    border: 1px solid #ddd;   /* Light border for text blocks */
+    border-radius: 5px;       /* Rounded corners */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+
+@media (max-width: 768px) {
+	.gallery-container {
+		flex-direction: column; /* Stack items vertically on small screens */
+		align-items: center;    /* Center items vertically */
+	}
+
+	.gallery-item, .text-block {
+		max-width: 90%; /* Use a smaller width to fit mobile screens */
+	}
+}
 /* .gallery a {
 	display: inline-block;
 	width:200%;
