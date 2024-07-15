@@ -252,7 +252,7 @@
 					// MY OWN CUSTOM ADDITIONS TO GALLERY
 					document.addEventListener('DOMContentLoaded', () => {
 						const galleryContainer = document.querySelector('.gallery-container');
-						const galleryWidth = galleryContainer.clientWidth;
+						// const galleryWidth = galleryContainer.clientWidth;
 						let imagesTotalWidth = 0;
 
 						Array.from(galleryContainer.children).forEach(img => {
