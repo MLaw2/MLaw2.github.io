@@ -4695,3 +4695,48 @@ input, select, textarea {
 	vertical-align: top;
 	margin-bottom: 0px;
 } */
+
+/* Basic styling for the link */
+        .copy-assist{
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+
+        /* Styling for the copied message */
+        .copy-message {
+            display: none;
+            position: absolute;
+            top: -30px;
+            left: 0;
+            background: #4CAF50;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        /* Styling for the link preview */
+        .copy-preview {
+            display: none;
+            position: absolute;
+            bottom: 25px;
+            left: 0;
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 3px;
+            font-size: 14px;
+            width: 200px;
+            white-space: normal;
+            z-index: 10;
+        }
+
+        /* Show the copied message and link preview on hover */
+        .copy-assist:hover .copy-message,
+        .copy-assist:hover .copy-preview {
+            display: block;
+        }
