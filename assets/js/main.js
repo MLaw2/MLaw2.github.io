@@ -11,6 +11,26 @@
 		$header = $('#header'),
 		$banner = $('#banner');
 
+	// myFunctions
+	function loadTextFile(filePath, targetElementId) {
+        fetch(filePath)
+            .then(response => response.text())
+            .then(data => {
+                // Insert the file content into the specified HTML element
+                document.getElementById(targetElementId).innerText = data;
+            })
+            .catch(error => {
+                console.error('Error fetching the file:', error);
+            });
+    }
+
+    // Example usage: Call this function when the page loads or when a specific event occurs
+    // Adjust 'yourfile.txt' and 'file-content' according to your needs
+    document.addEventListener('DOMContentLoaded', function() {
+        loadTextFile('../assets/txt/Quick About-Me.txt', 'quick-about');
+    });
+
+
 	// Breakpoints.
 		breakpoints({
 			xlarge:   [ '1281px',  '1680px' ],
@@ -252,7 +272,7 @@
 					// MY OWN CUSTOM ADDITIONS TO GALLERY
 					document.addEventListener('DOMContentLoaded', () => {
 						const galleryContainer = document.querySelector('.gallery-container');
-						const galleryWidth = galleryContainer.clientWidth;
+						// const galleryWidth = galleryContainer.clientWidth;
 						let imagesTotalWidth = 0;
 
 						Array.from(galleryContainer.children).forEach(img => {
